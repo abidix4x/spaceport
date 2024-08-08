@@ -69,12 +69,12 @@ const HeroContent = () => {
         className="w-full h-full flex justify-center items-center mt-10 lg:mt-0"
       >
         <Image
-          src="/mainIconsdark.svg"
+          src="/me1.png"
           alt="work icons"
           height={650}
           width={650}
           priority
-          className="w-64 h-64 md:w-96 md:h-96 lg:w-650 lg:h-650"
+          className="hidden lg:block md:block w-64 h-64 md:w-96 md:h-96 lg:w-650 lg:h-650 object-cover"
         />
       </motion.div>
     </motion.div>
