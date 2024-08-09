@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { slideInFromLeft, slideInFromRight, slideInFromTop } from "@/utils/motion";
 import Image from "next/image";
 import { FaLocationArrow } from "react-icons/fa6";
+import MagicButton from "../main/MagicButton";
 
 const HeroContent = () => {
   const [gradientPosition, setGradientPosition] = useState({ x: 50, y: 50 });
@@ -80,10 +81,14 @@ const HeroContent = () => {
 
         <motion.a
           variants={slideInFromLeft(1)}
-          href="#about"
-          className="inline-flex items-center px-5 py-3 text-white bg-gradient-to-r from-purple-500 to-cyan-500 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300"
+          href="#projects"
+          className="inline-flex items-center text-white bg-gradient-to-r from-purple-500 to-cyan-500 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300"
         >
-          Explore <FaLocationArrow className="ml-2" />
+          <MagicButton
+            title="Explore"
+            icon={<FaLocationArrow />}
+            position="right"
+          />
         </motion.a>
       </div>
 
