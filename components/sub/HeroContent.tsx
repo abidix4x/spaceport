@@ -5,14 +5,13 @@ import { motion } from "framer-motion";
 import { slideInFromLeft, slideInFromRight, slideInFromTop } from "@/utils/motion";
 import Image from "next/image";
 import { FaLocationArrow } from "react-icons/fa6";
-import MagicButton from "../main/MagicButton";
 
 const HeroContent = () => {
   const [gradientPosition, setGradientPosition] = useState({ x: 50, y: 50 });
-  const imageContainerRef = useRef(null);
+  const imageContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       if (imageContainerRef.current) {
         const rect = imageContainerRef.current.getBoundingClientRect();
         const x = ((e.clientX - rect.left) / rect.width) * 100;
@@ -41,12 +40,12 @@ const HeroContent = () => {
       className="flex flex-col lg:flex-row items-center justify-between px-6 lg:px-20 w-full z-50 pt-12 lg:pt-24 space-y-10 lg:space-y-0"
     >
       {/* Left Content */}
-      <div className="flex flex-col items-center lg:items-start text-center lg:text-left mt-10 lg:mt-0 space-y-6">
+      <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 mt-10 lg:mt-0">
         <motion.div
           variants={slideInFromTop}
           className="bg-black-200 px-4 py-2 rounded-full border border-purple shadow-lg"
         >
-          <h1 className="text-white-100 text-lg lg:text-lg">
+          <h1 className="text-white-100 text-xs lg:text-sm">
             Abidi Ben Hassen
           </h1>
         </motion.div>
@@ -78,18 +77,13 @@ const HeroContent = () => {
           I&apos;m a Future Software Engineer with experience in Website,
           Mobile, and Software development. Check out my projects and skills.
         </motion.p>
+
         <motion.a
           variants={slideInFromLeft(1)}
-          href="#projects"
-          className="inline-flex items-center text-white bg-gradient-to-r from-purple-500 to-cyan-500 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300"
+          href="#about"
+          className="inline-flex items-center px-5 py-3 text-white bg-gradient-to-r from-purple-500 to-cyan-500 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300"
         >
-          
-          <MagicButton
-            title="Explore"
-            icon={<FaLocationArrow />}
-            position="right"
-          />
-
+          Explore <FaLocationArrow className="ml-2" />
         </motion.a>
       </div>
 
@@ -102,14 +96,14 @@ const HeroContent = () => {
           background: `radial-gradient(circle at ${gradientPosition.x}% ${gradientPosition.y}%, #cbacf9, #000319)`,
         }}
       >
-        <div className="absolute inset-0 border-8 border-purple rounded-full opacity-80 animate-pulse"></div>
+        <div className="absolute inset-0 border-4 border-purple rounded-full opacity-80 animate-pulse"></div>
         <Image
-          src="/me3.png"
+          src="/me1.png"
           alt="Abidi Ben Hassen"
           height={650}
           width={650}
           priority
-          className="relative z-10 rounded-full object-cover shadow-lg brightness-110"
+          className="relative z-10 rounded-full object-cover shadow-lg"
         />
         <div className="absolute inset-0 border-2 border-white-100 rounded-full opacity-20 animate-spin-slow"></div>
       </motion.div>
