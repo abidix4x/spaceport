@@ -108,7 +108,7 @@ const HeroContent = () => {
           height={650}
           width={650}
           priority
-          className="relative z-10 rounded-full object-cover shadow-lg"
+          className="relative z-10 rounded-full object-cover shadow-lg hover:scale-105 transition-transform duration-300"
         />
         <div className="absolute inset-0 border-2 border-white-100 rounded-full opacity-20 animate-spin-slow"></div>
       </motion.div>

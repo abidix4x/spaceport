@@ -1,0 +1,93 @@
+"use client";
+
+import React, { useState } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { FaExternalLinkAlt } from "react-icons/fa";
+
+interface ProjectCardProps {
+  title: string;
+  description: string;
+  imageUrl: string;
+  projectUrl: string;
+  iconLists: string[]; // New prop to accept an array of icon URLs
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({
+  title,
+  description,
+  imageUrl,
+  projectUrl,
+  iconLists,
+}) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <motion.div
+      className="relative w-full max-w-sm rounded-lg overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105"
+      style={{
+        background: isHovered
+          ? `linear-gradient(135deg, #cbacf9 0%, #000319 100%)`
+          : `linear-gradient(135deg, #000319 0%, #cbacf9 100%)`,
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Project Image */}
+      <div className="relative w-full h-48 overflow-hidden">
+        <Image
+          src={imageUrl}
+          alt={title}
+          layout="fill"
+          objectFit="cover"
+          className="transition-transform duration-500 transform hover:scale-110"
+        />
+      </div>
+
+      {/* Card Content */}
+      <div className="p-6 text-white">
+        <h3 className="text-xl font-bold mb-3">{title}</h3>
+        <p className="text-sm text-gray-300 mb-5">{description}</p>
+
+        <div className="flex items-center justify-between">
+          {/* Icons List */}
+          <div className="flex items-center cursor-pointer">
+            {iconLists.map((icon, index) => (
+              <div
+                key={index}
+                className="border border-white/[.2] rounded-full bg-black cursor-pointer  lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
+                style={{
+                  transform: `translateX(-${5 * index + 2}px)`,
+                }}
+              >
+                <img src={icon} alt={`icon${index}`} className="p-2 !hover:scale-110" />
+              </div>
+            ))}
+          </div>
+
+          {/* View Project Button */}
+          <a
+            href={projectUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-4 py-2 text-sm font-medium bg-gradient-to-r from-purple-500 to-cyan-500 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 hover:scale-105 cursor-pointer"
+          >
+            View Project <FaExternalLinkAlt className="ml-2" />
+          </a>
+        </div>
+      </div>
+
+      {/* Glowing Shadow */}
+      <div
+        className="absolute inset-0 rounded-lg shadow-lg transition-all duration-500"
+        style={{
+          boxShadow: isHovered
+            ? `0 0 20px rgba(203, 172, 249, 0.7), 0 0 30px rgba(0, 3, 25, 0.5)`
+            : `0 0 10px rgba(203, 172, 249, 0.3), 0 0 20px rgba(0, 3, 25, 0.2)`,
+        }}
+      ></div>
+    </motion.div>
+  );
+};
+
+export default ProjectCard;
