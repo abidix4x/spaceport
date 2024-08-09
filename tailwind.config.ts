@@ -24,6 +24,7 @@ const config = {
       screens: {
         "2xl": "1400px",
       },
+      
     },
     extend: {
       colors: {
@@ -151,7 +152,7 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         spotlight: "spotlight 2s ease .75s 1 forwards",
-        shimmer: "shimmer 2s linear infinite",
+        bounce: "bounce 4s infinite",
         first: "moveVertical 30s ease infinite",
         second: "moveInCircle 20s reverse infinite",
         third: "moveInCircle 40s linear infinite",

@@ -1,81 +1,117 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import {
-  slideInFromLeft,
-  slideInFromRight,
-  slideInFromTop,
-} from "@/utils/motion";
+import { slideInFromLeft, slideInFromRight, slideInFromTop } from "@/utils/motion";
 import Image from "next/image";
-import { TextGenerateEffect } from "../ui/TextGenerateEffect";
 import { FaLocationArrow } from "react-icons/fa6";
+import MagicButton from "../main/MagicButton";
 
 const HeroContent = () => {
+  const [gradientPosition, setGradientPosition] = useState({ x: 50, y: 50 });
+  const imageContainerRef = useRef(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (imageContainerRef.current) {
+        const rect = imageContainerRef.current.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        setGradientPosition({ x, y });
+      }
+    };
+
+    const imageContainer = imageContainerRef.current;
+
+    if (imageContainer) {
+      imageContainer.addEventListener("mousemove", handleMouseMove);
+    }
+
+    return () => {
+      if (imageContainer) {
+        imageContainer.removeEventListener("mousemove", handleMouseMove);
+      }
+    };
+  }, []);
+
   return (
     <motion.div
       initial="hidden"
       animate="visible"
-      className="flex flex-col lg:flex-row items-center justify-center px-6 lg:px-20 w-full z-50 pt-12 lg:pt-24"
+      className="flex flex-col lg:flex-row items-center justify-between px-6 lg:px-20 w-full z-50 pt-12 lg:pt-24 space-y-10 lg:space-y-0"
     >
-      <div className="h-full w-full flex flex-col gap-5 justify-center m-[50px] text-center items-center">
-        <div className="flex flex-col lg:flex-row items-center justify-between">
-          <motion.div
-            variants={slideInFromTop}
-            className="Welcome-box py-2 px-3 border border-[#7042f88b]"
-          >
-            <h1 className="Welcome-text text-xs lg:text-[13px] w-full">
-              Abidi Ben Hassen
-            </h1>
-          </motion.div>
-          <motion.h2
-            className="uppercase tracking-widest text-xs text-center text-blue-100 mt-4 lg:mt-0 lg:max-w-80"
-            variants={slideInFromRight(0.8)}
-          >
-            Dynamic Web Magic With Next.js
-          </motion.h2>
-        </div>
+      {/* Left Content */}
+      <div className="flex flex-col items-center lg:items-start text-center lg:text-left mt-10 lg:mt-0 space-y-6">
+        <motion.div
+          variants={slideInFromTop}
+          className="bg-black-200 px-4 py-2 rounded-full border border-purple shadow-lg"
+        >
+          <h1 className="text-white-100 text-lg lg:text-lg">
+            Abidi Ben Hassen
+          </h1>
+        </motion.div>
+
+        <motion.h2
+          variants={slideInFromRight(0.8)}
+          className="uppercase text-blue-100 tracking-widest text-xs lg:text-sm"
+        >
+          Dynamic Web Magic With Next.js
+        </motion.h2>
+
         <motion.div
           variants={slideInFromLeft(0.5)}
-          className="flex flex-col gap-6 mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white max-w-[600px] w-auto h-auto"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
         >
           <span>
-            Providing
+            Providing{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple to-cyan-500">
-              {" "}
-              the best{" "}
-            </span>
+              the best
+            </span>{" "}
             project experience
           </span>
         </motion.div>
 
         <motion.p
           variants={slideInFromLeft(0.8)}
-          className="text-sm sm:text-base md:text-lg text-gray-400 my-5 max-w-[600px]"
+          className="text-gray-400 text-sm sm:text-base md:text-lg max-w-md lg:max-w-lg"
         >
           I&apos;m a Future Software Engineer with experience in Website,
           Mobile, and Software development. Check out my projects and skills.
         </motion.p>
         <motion.a
           variants={slideInFromLeft(1)}
-          className="py-2 px-4 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px] bg-gradient-to-r from-purple-500 to-cyan-500"
-          href="#about"        >
-          <span className="flex flex-row items-center justify-center">Explore <FaLocationArrow/></span>
+          href="#projects"
+          className="inline-flex items-center text-white bg-gradient-to-r from-purple-500 to-cyan-500 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300"
+        >
+          
+          <MagicButton
+            title="Explore"
+            icon={<FaLocationArrow />}
+            position="right"
+          />
+
         </motion.a>
       </div>
 
+      {/* Right Content - Image with Effects */}
       <motion.div
         variants={slideInFromRight(0.8)}
-        className="w-full h-full flex justify-center items-center mt-10 lg:mt-0"
+        ref={imageContainerRef}
+        className="relative w-full max-w-md lg:max-w-lg aspect-square rounded-full shadow-2xl overflow-hidden transition-transform duration-300"
+        style={{
+          background: `radial-gradient(circle at ${gradientPosition.x}% ${gradientPosition.y}%, #cbacf9, #000319)`,
+        }}
       >
+        <div className="absolute inset-0 border-8 border-purple rounded-full opacity-80 animate-pulse"></div>
         <Image
-          src="/me1.png"
-          alt="work icons"
+          src="/me3.png"
+          alt="Abidi Ben Hassen"
           height={650}
           width={650}
           priority
-          className="hidden lg:block md:block w-64 h-64 md:w-96 md:h-96 lg:w-650 lg:h-650 object-cover"
+          className="relative z-10 rounded-full object-cover shadow-lg brightness-110"
         />
+        <div className="absolute inset-0 border-2 border-white-100 rounded-full opacity-20 animate-spin-slow"></div>
       </motion.div>
     </motion.div>
   );
