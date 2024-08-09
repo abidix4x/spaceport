@@ -98,7 +98,7 @@ const HeroContent = () => {
       >
         <div className="absolute inset-0 border-4 border-purple rounded-full opacity-80 animate-pulse"></div>
         <Image
-          src="/me1.png"
+          src="/me3.png"
           alt="Abidi Ben Hassen"
           height={650}
           width={650}
