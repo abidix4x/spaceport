@@ -27,7 +27,7 @@ const config = {
       
     },
     extend: {
-      aspectRatio:{'card':0.75},
+      aspectRatio:{'card':'0.75'},
       colors: {
         black: {
           DEFAULT: "#000",
