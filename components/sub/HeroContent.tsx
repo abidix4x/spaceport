@@ -6,8 +6,10 @@ import { slideInFromLeft, slideInFromRight, slideInFromTop } from "@/utils/motio
 import Image from "next/image";
 import { FaLocationArrow } from "react-icons/fa6";
 import MagicButton from "../main/MagicButton";
+import { useTheme } from "next-themes";
 
 const HeroContent = () => {
+  const {theme,setTheme} = useTheme();
   const [gradientPosition, setGradientPosition] = useState({ x: 50, y: 50 });
   const imageContainerRef = useRef<HTMLDivElement>(null);
 
@@ -38,29 +40,29 @@ const HeroContent = () => {
     <motion.div
       initial="hidden"
       animate="visible"
-      className="flex flex-col lg:flex-row items-center justify-between px-6 lg:px-20 w-full z-50 pt-12 lg:pt-24 space-y-10 lg:space-y-0"
+      className="flex flex-col lg:flex-row items-center justify-between px-6 lg:px-20 w-full z-50 pt-12 lg:pt-24 space-y-10 lg:space-y-0 dark:bg-"
     >
       {/* Left Content */}
-      <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 mt-10 lg:mt-0">
+      <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 mt-12 lg:mt-0">
         <motion.div
           variants={slideInFromTop}
-          className="bg-black-200 px-4 py-2 rounded-full border border-purple shadow-lg"
+          className="bg-black-200 dark:bg-foreground px-4 py-2 rounded-full border border-purple shadow-lg"
         >
-          <h1 className="text-white-100 text-xs lg:text-sm">
+          <h1 className="text-white-100 dark:text-black-100 text-[18px] sm:text-lg font-light">
             Abidi Ben Hassen
           </h1>
         </motion.div>
 
         <motion.h2
           variants={slideInFromRight(0.8)}
-          className="uppercase text-blue-100 tracking-widest text-xs lg:text-sm"
+          className="uppercase text-blue-100 tracking-widest text-xs lg:text-sm dark:text-black-100"
         >
           Dynamic Web Magic With Next.js
         </motion.h2>
 
         <motion.div
           variants={slideInFromLeft(0.5)}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
+          className="dark:text-black-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
         >
           <span>
             Providing{" "}
@@ -73,7 +75,7 @@ const HeroContent = () => {
 
         <motion.p
           variants={slideInFromLeft(0.8)}
-          className="text-gray-400 text-sm sm:text-base md:text-lg max-w-md lg:max-w-lg"
+          className="text-gray-400 dark:text-gray-600 text-sm sm:text-base md:text-lg max-w-md lg:max-w-lg"
         >
           I&apos;m a Future Software Engineer with experience in Website,
           Mobile, and Software development. Check out my projects and skills.
@@ -82,12 +84,14 @@ const HeroContent = () => {
         <motion.a
           variants={slideInFromLeft(1)}
           href="#projects"
-          className="inline-flex items-center text-white bg-gradient-to-r from-purple-500 to-cyan-500 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300"
+          className="inline-flex items-center text-white bg-gradient-to-r from-purple-500 to-cyan-500 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300 
+          dark:bg-white dark:text-black h-0"
         >
           <MagicButton
             title="Explore"
             icon={<FaLocationArrow />}
             position="right"
+            otherClasses="dark:text-white"
           />
         </motion.a>
       </div>
@@ -103,7 +107,7 @@ const HeroContent = () => {
       >
         <div className="absolute inset-0 border-4 border-purple rounded-full opacity-80 animate-pulse"></div>
         <Image
-          src="/me3.png"
+          src={theme === 'dark'? '/me2.png':'/me3.png'}
           alt="Abidi Ben Hassen"
           height={650}
           width={650}

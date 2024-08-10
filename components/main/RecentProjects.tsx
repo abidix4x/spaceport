@@ -7,15 +7,15 @@ import ProjectCard from "../ui/ProjectCard";
 
 const RecentProjects = () => {
   return (
-    <div className="py-20" id="projects">
-      <h1 className="heading text-white">
+    <div className="py-20  flex-wrap justify-center" id="projects">
+      <h1 className=" text-center heading text-white dark:text-black-100">
         A small selection of{" "}
         <span className="text-purple">recent projects</span>
       </h1>
-      <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-10">
+      <div className="p-4 mt-10 flex flex-wrap justify-center" >
         {projects.map((item) => (
           <div
-            className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]"
+            className="p-2"
             key={item.id}
           >
             <ProjectCard

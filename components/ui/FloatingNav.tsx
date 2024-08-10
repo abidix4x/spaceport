@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import {
   motion,
   AnimatePresence,
@@ -8,6 +9,7 @@ import {
 } from "framer-motion";
 import Link from "next/link";
 import { cn } from "@/utils/cn";
+import ThemeToggler from "../main/ThemeToggler";
 
 export const FloatingNav = ({
   navItems,
@@ -22,16 +24,13 @@ export const FloatingNav = ({
 }) => {
   const { scrollYProgress } = useScroll();
 
-  // set true for the initial state so that nav bar is visible in the hero section
   const [visible, setVisible] = useState(true);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
-    // Check if current is not undefined and is a number
     if (typeof current === "number") {
       let direction = current! - scrollYProgress.getPrevious()!;
 
       if (scrollYProgress.get() < 0.05) {
-        // also set true for the initial state
         setVisible(true);
       } else {
         if (direction < 0) {
@@ -58,17 +57,17 @@ export const FloatingNav = ({
           duration: 0.2,
         }}
         className={cn(
-          // change rounded-full to rounded-lg
-          // remove dark:border-white/[0.2] dark:bg-black bg-white border-transparent
-          // change  pr-2 pl-8 py-2 to px-10 py-5
-          "flex max-w-fit md:min-w-[70vw] lg:min-w-fit fixed z-[5000] top-8 inset-x-0 mx-auto px-10 py-3 rounded-lg border border-black/.1 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] items-center justify-center space-x-4",
+          "flex max-w-fit md:min-w-[70vw] lg:min-w-fit fixed z-[5000] top-6 inset-x-0 mx-auto px-10 py-2 !rounded-full border border-black/.1 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] items-center justify-center space-x-4",
           className
         )}
         style={{
           backdropFilter: "blur(16px) saturate(180%)",
-          backgroundColor: "rgba(17, 25, 40, 0.75)",
-          borderRadius: "12px",
-          border: "1px solid rgba(255, 255, 255, 0.125)",
+
+          background: "radial-gradient(circle, #CBACF9 0%, #000319 100%)",
+          backgroundColor:
+            "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
+
+          border: "2px solid rgba(255, 255, 255, 0.125)",
         }}
       >
         {navItems.map((navItem: any, idx: number) => (
@@ -76,15 +75,14 @@ export const FloatingNav = ({
             key={`link=${idx}`}
             href={navItem.link}
             className={cn(
-              "relative dark:text-neutral-50 items-center  flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
+              "relative dark:text-neutral-50 items-center flex space-x-1 text-white dark:hover:text-neutral-300 hover:text-neutral-500"
             )}
           >
             <span className="">{navItem.icon}</span>
-            {/* add !cursor-pointer */}
-            {/* remove hidden sm:block for the mobile responsive */}
             <span className=" text-sm !cursor-pointer">{navItem.name}</span>
           </Link>
         ))}
+        <ThemeToggler />
       </motion.div>
     </AnimatePresence>
   );

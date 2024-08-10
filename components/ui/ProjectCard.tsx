@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { ReactElement, ReactNode, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt } from "react-icons/fa";
@@ -21,10 +21,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   iconLists,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
-
   return (
     <motion.div
-      className="relative w-full max-w-sm rounded-lg overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105"
+      className="relative max-w-sm rounded-[20px] aspect-card w-[320px] overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105"
       style={{
         background: isHovered
           ? `linear-gradient(135deg, #cbacf9 0%, #000319 100%)`
@@ -52,20 +51,35 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <div className="flex items-center justify-between">
           {/* Icons List */}
           <div className="flex items-center cursor-pointer">
-            {iconLists.map((icon, index) => (
-              <div
-                key={index}
-                className="border border-white/[.2] rounded-full bg-black cursor-pointer  lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
-                style={{
-                  transform: `translateX(-${5 * index + 2}px)`,
-                }}
-              >
-                <img src={icon} alt={`icon${index}`} className="p-2 !hover:scale-110" />
-              </div>
-            ))}
+            {iconLists.map((icon, index) =>
+              index < 3 ? (
+                <div
+                  key={index}
+                  className="border border-white/[.2] rounded-full bg-black cursor-pointer  lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
+                  style={{
+                    transform: `translateX(-${5 * index + 2}px)`,
+                  }}
+                >
+                  <img
+                    src={icon}
+                    alt={`icon${index}`}
+                    className="p-2 !hover:scale-110"
+                  />
+                </div>
+              ) : (
+                []
+              )
+            )}
+            <div
+                  
+                  className="border border-white/[.2] rounded-full bg-black cursor-pointer  lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
+                  style={{
+                    transform: `translateX(-${5 * 3}px)`,
+                  }}
+                >
+                  <span>+{iconLists.length-3}</span>
+                </div>
           </div>
-
-          {/* View Project Button */}
           <a
             href={projectUrl}
             target="_blank"
