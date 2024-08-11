@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   motion,
   AnimatePresence,
@@ -10,16 +10,18 @@ import {
 import Link from "next/link";
 import { cn } from "@/utils/cn";
 import ThemeToggler from "../main/ThemeToggler";
+import { FaHome, FaUser, FaProjectDiagram, FaEnvelope } from "react-icons/fa";
+
+const navItems = [
+  { name: "Home", link: "#hero", icon: <FaHome /> },
+  { name: "About", link: "#about", icon: <FaUser /> },
+  { name: "Projects", link: "#projects", icon: <FaProjectDiagram /> },
+  { name: "Contact", link: "#contact", icon: <FaEnvelope /> },
+];
 
 export const FloatingNav = ({
-  navItems,
   className,
 }: {
-  navItems: {
-    name: string;
-    link: string;
-    icon?: JSX.Element;
-  }[];
   className?: string;
 }) => {
   const { scrollYProgress } = useScroll();
@@ -62,11 +64,9 @@ export const FloatingNav = ({
         )}
         style={{
           backdropFilter: "blur(16px) saturate(180%)",
-
           background: "radial-gradient(circle, #CBACF9 0%, #000319 100%)",
           backgroundColor:
             "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
-
           border: "2px solid rgba(255, 255, 255, 0.125)",
         }}
       >
@@ -78,8 +78,8 @@ export const FloatingNav = ({
               "relative dark:text-neutral-50 items-center flex space-x-1 text-white dark:hover:text-neutral-300 hover:text-neutral-500"
             )}
           >
-            <span className="">{navItem.icon}</span>
-            <span className=" text-sm !cursor-pointer">{navItem.name}</span>
+            <span className="icon sm:hidden px-2 text-xl">{navItem.icon}</span>
+            <span className="nav-item-text text-sm !cursor-pointer">{navItem.name}</span>
           </Link>
         ))}
         <ThemeToggler />

@@ -65,6 +65,12 @@
   line-height: 1.2;
   color: white;
 }
+@media (max-width: 768px) {
+  .nav-item-text {
+    display: none;
+  }
+}
+
 
 @layer base {
   * {
