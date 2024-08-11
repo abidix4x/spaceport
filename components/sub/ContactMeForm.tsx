@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
+import MagicButton from "../main/MagicButton";
+import { FaLocationArrow } from "react-icons/fa6";
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -12,7 +14,9 @@ const ContactForm: React.FC = () => {
 
   const [formStatus, setFormStatus] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
@@ -31,26 +35,26 @@ const ContactForm: React.FC = () => {
       )
       .then(
         (response) => {
-          console.log("SUCCESS!", response.status, response.text);
           setFormStatus("Thank you for reaching out!");
-          setFormData({ name: "", email: "", message: "" });
+          setFormData({ name: formData.name, email: formData.email, message: formData.message });
         },
         (error) => {
-          console.error("FAILED...", error);
           setFormStatus("Failed to send message. Please try again later.");
         }
       );
   };
 
   return (
-    <div className="flex flex-col items-center justify-center py-10 px-4 md:px-8">
-      <h2 className="text-3xl font-bold text-white mb-6">Contact Me</h2>
+    <div className="dark:bg-gradient-to-br dark:from-white dark:to-white flex flex-col items-center rounded-3xl justify-center py-10 px-4 md:px-8 bg-gradient-to-br from-black-100 to-[#10172e]">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-lg bg-white shadow-lg rounded-lg p-6"
+        className="w-full max-w-lg rounded-[20px] p-6 shadow-lg z-50"
       >
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+        <div className="mb-2">
+          <label
+            className="block text-gray-300 text-sm font-semibold mb-2 dark:text-black-100"
+            htmlFor="name"
+          >
             Name
           </label>
           <input
@@ -59,12 +63,15 @@ const ContactForm: React.FC = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full px-4 py-2 dark:text-black-100 border border-gray-600 rounded-full bg-gray-800 dark:bg-transparent text-white shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
             required
           />
         </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+        <div className="mb-2">
+          <label
+            className="block text-gray-300 text-sm font-semibold mb-2 dark:text-black-100"
+            htmlFor="email"
+          >
             Email
           </label>
           <input
@@ -73,12 +80,15 @@ const ContactForm: React.FC = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full px-4 py-2 border border-gray-600 rounded-full dark:bg-transparent bg-gray-800 text-white dark:text-black-100 shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
             required
           />
         </div>
-        <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="message">
+        <div className="mb-2">
+          <label
+            className="block text-gray-300 text-sm font-semibold mb-2 dark:text-black-100"
+            htmlFor="message"
+          >
             Message
           </label>
           <textarea
@@ -87,19 +97,19 @@ const ContactForm: React.FC = () => {
             value={formData.message}
             onChange={handleChange}
             rows={4}
-            className="w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full px-4 py-2 border dark:text-black-100 border-gray-600 rounded-[25px] dark:bg-transparent bg-gray-800 text-white shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
             required
           ></textarea>
         </div>
         <div className="flex items-center justify-between">
-          <button
-            type="submit"
-            className="bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-bold py-2 px-4 rounded-lg hover:from-purple-600 hover:to-cyan-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
-          >
-            Send
-          </button>
-          <p className="text-sm text-green-500">{formStatus}</p>
+            <MagicButton
+              title="Send"
+              icon={<FaLocationArrow />}
+              position="right"
+              type="submit"
+            />
         </div>
+          <p className="text-sm text-center text-green-400">{formStatus}</p>
       </form>
     </div>
   );

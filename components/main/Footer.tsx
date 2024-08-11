@@ -20,29 +20,23 @@ const Footer = () => {
         <h1 className="heading lg:max-w-[45vw] dark:text-black-100">
           Contact <span className="text-purple">me</span>
         </h1>
-        <p className="text-white-200 md:mt-10 my-5 text-center">
+        <p className="text-white-200 md:mt-10 my-5 text-center dark:text-black-200">
           Reach out to me today and let&apos;s discuss how I can help you
           achieve your goals.
         </p>
-        {/* <ContactMeForm/> */}
-        <a href="mailto:abidi.benhassen.a@gmail.com">
-          <MagicButton
-            title="Let's get in touch"
-            icon={<FaLocationArrow />}
-            position="right"
-          />
-        </a>
+        <ContactMeForm/>
+      
       </div>
-      <div className="flex mt-16 md:flex-row sm:hidden flex-col justify-between items-center">
-        <p className="md:text-base text-sm md:font-normal font-light text-white">
+      <div className="flex mt-4 md:flex-row justify-center flex-col items-center">
+        {/* <p className="md:text-base text-sm md:font-normal font-light text-white">
           Copyright © 2024
-        </p>
+        </p> */}
 
-        <div className="flex items-center md:gap-3 gap-6">
+        <div className="flex items-center gap-6 md:gap-3 justify-center">
           {socialMedia.map((info) => (
             <div
               key={info.id}
-              className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300"
+              className="hover:scale-110 transition duration-200 w-11 h-11 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-95 bg-black-200 rounded-full border border-black-300 dark:bg-gradient-to-br dark:from-violet-400 to-purple"
             >
                 <a href={info.href} target="balnk">
               <img src={info.img} alt="icons" width={20} height={20}/>
