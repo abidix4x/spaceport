@@ -29,8 +29,12 @@ const ContactForm: React.FC = () => {
     emailjs
       .send(
         "service_9b9j89l", // Replace with your EmailJS Service ID
-        "template_j6btamb", // Replace with your EmailJS Template ID
-        formData,
+        "template_j6btamb",
+        {
+            from_name: formData.name,
+            reply_to: formData.email, // This should match the variable name in the template
+            message: formData.message,
+        } ,// Replace with your EmailJS Template ID
         "PKBV0t2Gqm72QIhPN" // Replace with your EmailJS User ID
       )
       .then(
