@@ -11,7 +11,6 @@ import Link from "next/link";
 import { cn } from "@/utils/cn";
 import ThemeToggler from "../main/ThemeToggler";
 import { FaHome, FaUser, FaProjectDiagram, FaEnvelope } from "react-icons/fa";
-
 const navItems = [
   { name: "Home", link: "#hero", icon: <FaHome /> },
   { name: "About", link: "#about", icon: <FaUser /> },

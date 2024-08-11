@@ -1,21 +1,6 @@
-export const navItems = [
-  { name: "Hero", link: "#hero" },
-  { name: "About", link: "#about" },
-  { name: "Projects", link: "#projects" },
-  { name: "Contact", link: "#contact" },
-];
+
 
 export const gridItems = [
-  // {
-  //   id: 1,
-  //   title: "I prioritize client collaboration, fostering open communication ",
-  //   description: "",
-  //   className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[40vh] w-[50%]",
-  //   imgClassName: "object-fit-contain",
-  //   titleClassName: "justify-end text-white",
-  //   img: "/me4.png",
-  //   spareImg: "",
-  // },
   {
     id: 2,
     title: "I'm very flexible with time zone communications",

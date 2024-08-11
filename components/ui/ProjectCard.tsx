@@ -83,8 +83,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <a
             href={projectUrl}
             target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-4 py-2 text-sm font-medium bg-gradient-to-r from-purple-500 to-cyan-500 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 hover:scale-105 cursor-pointer"
+            
+            className="z-50 inline-flex items-center px-4 py-2 text-sm font-medium bg-gradient-to-r from-purple-500 to-cyan-500 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 hover:scale-110 cursor-pointer"
           >
             View Project <FaExternalLinkAlt className="ml-2" />
           </a>
