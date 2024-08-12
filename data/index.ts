@@ -56,11 +56,18 @@ export const gridItems = [
   },
 ];
 
+export const carouselImages = [
+  { path: "/CardImage.png", name: "land" },
+  { path: "/shoemap.png", name: "land" },
+  { path: "/SpaceWebsite.png", name: "amphi" },
+];
+
 export const projects = [
   {
     id: 1,
     title: "3D Solar System Planets to Explore",
     des: "cool description will be hereeeee yallah.",
+    detailedDes:"lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident ",
     img: "/p1.svg",
     iconLists: [
       "/re.svg",
@@ -76,6 +83,7 @@ export const projects = [
     id: 2,
     title: "Yoom - Video Conferencing App",
     des: "cool description will be hereeeee yallah",
+    detailedDes:"lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident ",
     img: "/p2.svg",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/c.svg"],
     link: "https://github.com",
@@ -84,6 +92,7 @@ export const projects = [
     id: 3,
     title: "AI Image SaaS - Canva Application",
     des: "cool description will be hereeeee yallah",
+    detailedDes:"lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident ",
     img: "/p3.svg",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
     link: "https://github.com",
@@ -92,6 +101,7 @@ export const projects = [
     id: 4,
     title: "Animated Apple Iphone 3D Website",
     des: "cool description will be hereeeee yallah",
+    detailedDes:"lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident ",
     img: "/p4.svg",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg"],
     link: "https://github.com",

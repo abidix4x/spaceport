@@ -105,8 +105,9 @@ const ContactForm: React.FC = () => {
             value={formData.message}
             onChange={handleChange}
             rows={4}
-            className="w-full px-4 py-2 text-black-100 dark:border dark:border-gray-600 rounded-[25px] bg-transparent  dark:text-white shadow-drop dark:shadow-dropDarkin  focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="resize-none w-full px-4 py-2 text-black-100 dark:border dark:border-gray-600 rounded-[25px] bg-transparent  dark:text-white shadow-drop dark:shadow-dropDarkin  focus:outline-none focus:ring-2 focus:ring-blue-400"
             required
+
           ></textarea>
         </div>
         <div className="flex items-center justify-between">

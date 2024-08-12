@@ -4,6 +4,8 @@ import { useParams, useRouter } from "next/navigation";
 import { projects } from "@/data";
 import Image from "next/image";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import ProjectCarousel from "@/components/sub/ProjectCarousel";
+
 
 
 const ProjectPage = () => {
@@ -23,7 +25,7 @@ const ProjectPage = () => {
       </h1>
 
       <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start">
-        <div className="w-full md:w-1/2 h-80 shadow-drop rounded-2xl relative mb-6 md:mb-0">
+        <div className="w-full md:w-1/2 h-80 shadow-drop rounded-2xl relative mb-6 md:mb-0 flex justify-center items-center">
           <Image
             src={project.img}
             alt={project.title}
@@ -40,7 +42,7 @@ const ProjectPage = () => {
             </h2>
             <ul className="flex flex-wrap ">
               {project.iconLists.map((icon, index) => (
-                <li key={index} className="mr-4 mb-2 ">
+                <li key={index} className="mr-4 mb-2 shadow-drop rounded-full h-11 w-11 flex justify-center items-center bg-[#28252a] dark:bg-black-100">
                   <img src={icon} alt={`icon${index}`} className="w-8 h-8" />
                 </li>
               ))}
@@ -55,10 +57,45 @@ const ProjectPage = () => {
             target="_blank"
             className="z-50 inline-flex items-center px-2 py-2 text-sm font-normal text-black-100 text-nowrap dark:bg-white hover:bg-gray-100 rounded-[27px] shadow-drop transition-shadow duration-400 cursor-pointer dark:shadow-dropDarkin"
           >
-            View Project <FaExternalLinkAlt className="ml-2" />
+            View Project Live<FaExternalLinkAlt className="ml-2" />
           </a>
         </div>
       </div>
+
+
+
+
+      <div className="flex flex-col mt-20 md:flex-row items-center md:items-start justify-center md:justify-start">
+        
+
+        <div className="w-full md:w-1/2 pl-0 ">
+          <div className="mb-4">
+            <h2 className="text-xl font-semibold mb-2 dark:text-white text-black-100">
+              Detailed Description
+            </h2>
+            <p className="dark:text-gray-300 text-black-100 text-lg mt-4">
+              {project.detailedDes}
+            </p>
+            
+          </div>
+
+          
+          
+        </div>
+        <div className="w-full md:w-1/2 h-80 shadow-drop rounded-2xl relative mb-6 md:mb-0 flex justify-center items-center">
+          <Image
+            src={project.img}
+            alt={project.title}
+            layout="fill"
+            objectFit="contain"
+            className="rounded-2xl shadow-lg"
+          />
+        </div>
+      </div>
+
+
+
+              <ProjectCarousel/>
 
       {/* Back Button */}
       <div className="mt-10 text-center">
@@ -69,6 +106,8 @@ const ProjectPage = () => {
           Back to Projects
         </button>
       </div>
+
+      
     </div>
   );
 };
