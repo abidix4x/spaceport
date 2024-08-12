@@ -4,8 +4,10 @@ import React, { ReactElement, ReactNode, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 
 interface ProjectCardProps {
+  id: number;
   title: string;
   description: string;
   imageUrl: string;
@@ -14,6 +16,7 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
+  id,
   title,
   description,
   imageUrl,
@@ -21,9 +24,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   iconLists,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const router = useRouter();
+  const handleRouting =()=>{
+    router.push(`/projects/${id}`)
+  }
   return (
     <motion.div
-      className="relative max-w-sm rounded-[20px] aspect-card w-[320px] overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105"
+      className="cursor-pointer relative max-w-sm rounded-[22px] aspect-card w-[320px] overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105"
       style={{
         background: isHovered
           ? `linear-gradient(135deg, #cbacf9 0%, #000319 100%)`
@@ -31,6 +38,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={handleRouting}
     >
       {/* Project Image */}
       <div className="relative w-full h-48 overflow-hidden">
@@ -84,8 +92,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             href={projectUrl}
             target="_blank"
             
-            className="z-50 inline-flex items-center px-4 py-2 text-sm font-medium bg-gradient-to-r from-purple-500 to-cyan-500 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 hover:scale-110 cursor-pointer"
-          >
+            className="z-50 inline-flex items-center px-2 py-2 text-sm font-normal text-nowrap bg-gradient-to-r from-purple-500 to-cyan-500 rounded-[27px] shadow-lg transition-shadow duration-400 hover:filter:drop-shadow(2px_4px_3px_black) hover:scale-105 cursor-pointer border"
+          > 
             View Project <FaExternalLinkAlt className="ml-2" />
           </a>
         </div>

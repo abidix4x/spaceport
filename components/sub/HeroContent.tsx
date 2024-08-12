@@ -46,23 +46,23 @@ const HeroContent = () => {
       <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 mt-12 lg:mt-0">
         <motion.div
           variants={slideInFromTop}
-          className="bg-black-200 dark:bg-foreground px-4 py-2 rounded-full border border-purple shadow-lg"
+          className="dark:bg-black-200 bg-transparent px-4 py-2 rounded-full border border-purple shadow-lg"
         >
-          <h1 className="text-white-100 dark:text-black-100 text-[18px] sm:text-lg font-light">
+          <h1 className="dark:text-white-100 text-black-100 text-[18px] sm:text-lg font-light">
             Abidi Ben Hassen
           </h1>
         </motion.div>
 
         <motion.h2
           variants={slideInFromRight(0.8)}
-          className="uppercase text-blue-100 tracking-widest text-xs lg:text-sm dark:text-black-100"
+          className="uppercase dark:text-blue-100 tracking-widest text-xs lg:text-sm text-black-100"
         >
           Dynamic Web Magic With Next.js
         </motion.h2>
 
         <motion.div
           variants={slideInFromLeft(0.5)}
-          className="dark:text-black-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
+          className="text-black-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold dark:text-white leading-tight"
         >
           <span>
             Providing{" "}
@@ -75,7 +75,7 @@ const HeroContent = () => {
 
         <motion.p
           variants={slideInFromLeft(0.8)}
-          className="text-gray-400 dark:text-gray-600 text-sm sm:text-base md:text-lg max-w-md lg:max-w-lg"
+          className="dark:text-gray-400 text-gray-600 text-sm sm:text-base md:text-lg max-w-md lg:max-w-lg"
         >
           I&apos;m a Future Software Engineer with experience in Website,
           Mobile, and Software development. Check out my projects and skills.
@@ -84,14 +84,14 @@ const HeroContent = () => {
         <motion.a
           variants={slideInFromLeft(1)}
           href="#projects"
-          className="inline-flex items-center text-white bg-gradient-to-r from-purple-500 to-cyan-500 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300 
-          dark:bg-white dark:text-black h-0"
+          className="inline-flex items-center dark:text-white dark:bg-gradient-to-r dark:from-purple dark:to-cyan-500 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300 
+          bg-white text-black h-0"
         >
           <MagicButton
             title="Explore"
             icon={<FaLocationArrow />}
             position="right"
-            otherClasses="dark:text-white"
+            otherClasses="text-white"
           />
         </motion.a>
       </div>
@@ -107,7 +107,7 @@ const HeroContent = () => {
       >
         <div className="absolute inset-0 border-4 border-purple rounded-full opacity-80 animate-pulse"></div>
         <Image
-          src={theme === 'dark'? '/me2.png':'/me3.png'}
+          src={theme === 'dark'? '/me3.png':'/me2.png'}
           alt="Abidi Ben Hassen"
           height={650}
           width={650}

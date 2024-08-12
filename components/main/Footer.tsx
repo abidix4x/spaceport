@@ -1,7 +1,5 @@
-import { FaLocationArrow } from "react-icons/fa6";
 
-import { socialMedia } from "@/data";
-import MagicButton from "./MagicButton";
+import { SOCIALMEDIA } from "@/data/socialMedia";
 import ContactMeForm from "../sub/ContactMeForm";
 
 const Footer = () => {
@@ -17,15 +15,14 @@ const Footer = () => {
       </div>
 
       <div className="flex flex-col items-center">
-        <h1 className="heading lg:max-w-[45vw] dark:text-black-100">
+        <h1 className="heading lg:max-w-[45vw] text-black-100 dark:text-white">
           Contact <span className="text-purple">me</span>
         </h1>
-        <p className="text-white-200 md:mt-10 my-5 text-center dark:text-black-200">
+        <p className="dark:text-white-200 md:mt-10 my-5 text-center text-black-200">
           Reach out to me today and let&apos;s discuss how I can help you
           achieve your goals.
         </p>
-        <ContactMeForm/>
-      
+        <ContactMeForm />
       </div>
       <div className="flex mt-4 md:flex-row justify-center flex-col items-center">
         {/* <p className="md:text-base text-sm md:font-normal font-light text-white">
@@ -33,14 +30,14 @@ const Footer = () => {
         </p> */}
 
         <div className="flex items-center gap-6 md:gap-3 justify-center">
-          {socialMedia.map((info) => (
+          {SOCIALMEDIA.map((icon) => (
             <div
-              key={info.id}
-              className="hover:scale-110 transition duration-200 w-11 h-11 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-95 bg-black-200 rounded-full border border-black-300 dark:bg-gradient-to-br dark:from-violet-400 to-purple"
+              key={icon.id}
+              className="hover:scale-110 transition duration-200 w-11 h-11 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-95 dark:bg-black-200 rounded-full border border-black-300 bg-gradient-to-br from-violet-400 to-purple"
             >
-                <a href={info.href} target="balnk">
-              <img src={info.img} alt="icons" width={20} height={20}/>
-                </a>
+              <a href={icon.href} target="balnk">
+               {icon.img}
+              </a>
             </div>
           ))}
         </div>

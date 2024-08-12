@@ -9,8 +9,8 @@ import { FloatingNav } from "@/components/ui/FloatingNav";
 
 export default function Home() {
   return (
-    <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-clip
-    mx-auto sm:px-10 px-5 dark:bg-white scroll-smooth">
+    <main className="relative dark:bg-black-100 flex justify-center items-center flex-col overflow-clip
+    mx-auto sm:px-10 px-5 bg-white scroll-smooth">
       <div className="max-w-7xl w-full z-40">
         <FloatingNav />
         <Hero/>

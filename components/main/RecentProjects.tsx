@@ -1,6 +1,5 @@
 "use client";
 
-import { FaLocationArrow } from "react-icons/fa6";
 
 import { projects } from "@/data";
 import ProjectCard from "../ui/ProjectCard";
@@ -8,7 +7,7 @@ import ProjectCard from "../ui/ProjectCard";
 const RecentProjects = () => {
   return (
     <div className="py-20  flex-wrap justify-center" id="projects">
-      <h1 className=" text-center heading text-white dark:text-black-100">
+      <h1 className=" text-center heading dark:text-white   text-black-100">
         A small selection of{" "}
         <span className="text-purple">recent projects</span>
       </h1>
@@ -19,6 +18,7 @@ const RecentProjects = () => {
             key={item.id}
           >
             <ProjectCard
+              id={item.id}
               title={item.title}
               description={item.des}
               imageUrl={item.img}

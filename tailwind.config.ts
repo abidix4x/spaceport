@@ -24,10 +24,13 @@ const config = {
       screens: {
         "2xl": "1400px",
       },
-      
     },
     extend: {
-      aspectRatio:{'card':'0.75'},
+      boxShadow: {
+        drop: "3px 3px 7px #CBACF9",
+        dropDarkin: "1px 1px 7px #CBACF9",
+      },
+      aspectRatio: { card: "0.75" },
       colors: {
         black: {
           DEFAULT: "#000",
