@@ -21,6 +21,7 @@ const ProjectCarousel: React.FC = () => (
         <div className='mt-24'>
         <h3 style={contentStyle}>
           <Image 
+           key={index}
            src={image.path}
            alt={image.name} 
            width={850} 
