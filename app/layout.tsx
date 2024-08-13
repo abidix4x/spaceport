@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <link rel="icon" href="/next.svg" type="image/x-icon" />
+      {/* <link rel="icon" href="/favicon.png" type="image/x-icon" /> */}
       <body
         className={inter.className}
       >
