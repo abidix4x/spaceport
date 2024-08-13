@@ -15,10 +15,10 @@ const contentStyle: React.CSSProperties = {
 };
 
 const ProjectCarousel: React.FC = () => (
-  <Carousel autoplay arrows autoplaySpeed={3000}>
+  <Carousel autoplay arrows draggable lazyLoad='ondemand' swipe className='cursor-pointer' autoplaySpeed={3000}>
     {
       carouselImages.map((image, index) => (
-        <div className='mt-24'>
+        <div className='mt-24' key={index}>
         <h3 style={contentStyle}>
           <Image 
            key={index}

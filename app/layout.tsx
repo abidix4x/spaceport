@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en">
       <link rel="icon" href="/next.svg" type="image/x-icon" />
       <body
         className={inter.className}
@@ -27,7 +27,7 @@ export default function RootLayout({
             attribute="class"
             defaultTheme="system"
             enableSystem
-            // disableTransitionOnChange
+            disableTransitionOnChange
           >
             {children}
           </ThemeProvider>
