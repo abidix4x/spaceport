@@ -9,7 +9,7 @@ import MagicButton from "../main/MagicButton";
 import { useTheme } from "next-themes";
 
 const HeroContent = () => {
-  const {theme,setTheme} = useTheme();
+  const {theme} = useTheme();
   const [gradientPosition, setGradientPosition] = useState({ x: 50, y: 50 });
   const imageContainerRef = useRef<HTMLDivElement>(null);
 
