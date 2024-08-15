@@ -65,19 +65,42 @@ export const carouselImages = [
 export const projects = [
   {
     id: 1,
-    title: "3D Solar System Planets to Explore",
-    des: "cool description will be hereeeee yallah.",
-    detailedDes:"lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident ",
-    img: "/p1.svg",
+    title: "BleepBleeps - Smart Family",
+    des: "kids gadgets website.",
+    detailedDes:"Cute, connected gadgets that Make Parenting Magic. Each of the BleepBleeps characters has a face, a name, and a personality - and they each help with a different aspect of parenting. Whether it’s a good night’s sleep, brushing teeth, tracking body temperature or location - each device connects to the BleepBleeps app to help you and your family through the day.",
+    img: "/bleeps.png",
+    img2:"/bleeps2.png",
     iconLists: [
       "/re.svg",
       "/tail.svg",
       "/ts.svg",
-      "/next.svg",
+      "/html.png",
+      "/css.png",
       "/mongodb.png",
-      "/dock.svg",
     ],
-    link: "https://github.com",
+    link: "https://itsallmememe.github.io/bleepbleeps/bleepbleeps.itsallmememe.com/index.html",
+    carousel:[
+      {
+        path: "/bleeps3.png",
+        name: ""
+      },
+      {
+        path: "/bleeps4.png",
+        name: ""
+      },
+      {
+        path: "/bleeps5.png",
+        name: ""
+      },
+      {
+        path: "/bleeps6.png",
+        name: ""
+      },
+      {
+        path: "/bleeps7.png",
+        name: ""
+      },
+    ]
   },
   {
     id: 2,
@@ -85,8 +108,15 @@ export const projects = [
     des: "cool description will be hereeeee yallah",
     detailedDes:"lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident ",
     img: "/p2.svg",
+    img2:"/bleeps2.png",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/c.svg"],
     link: "https://github.com",
+     carousel:[
+      {
+        path: "/CardImage.png",
+        name: "land"
+      },
+    ]
   },
   {
     id: 3,
@@ -94,8 +124,15 @@ export const projects = [
     des: "cool description will be hereeeee yallah",
     detailedDes:"lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident ",
     img: "/p3.svg",
+    img2:"/bleeps2.png",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
     link: "https://github.com",
+     carousel:[
+      {
+        path: "/CardImage.png",
+        name: "land"
+      },
+    ]
   },
   {
     id: 4,
@@ -103,8 +140,15 @@ export const projects = [
     des: "cool description will be hereeeee yallah",
     detailedDes:"lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident ",
     img: "/p4.svg",
+    img2:"/bleeps2.png",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg"],
     link: "https://github.com",
+     carousel:[
+      {
+        path: "/CardImage.png",
+        name: "land"
+      },
+    ]
   },
 ];
 

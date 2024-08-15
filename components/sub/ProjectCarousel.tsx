@@ -1,7 +1,7 @@
 import React from 'react';
 import { Carousel } from 'antd';
 import Image from 'next/image';
-import { carouselImages } from '@/data';
+
 
 const contentStyle: React.CSSProperties = {
   height: '80vh',
@@ -10,11 +10,17 @@ const contentStyle: React.CSSProperties = {
   background: 'transparent',
   backgroundSize: 'contain',
   position: 'relative',
-  
-
 };
+interface CarouselImage {
+  path: string;
+  name: string;
+}
 
-const ProjectCarousel: React.FC = () => (
+interface ProjectCarouselProps {
+  carouselImages: CarouselImage[]; // Define the prop type
+}
+
+const ProjectCarousel: React.FC <ProjectCarouselProps>= ({carouselImages}) => (
   <Carousel autoplay arrows draggable lazyLoad='ondemand' swipe className='cursor-pointer' autoplaySpeed={3000}>
     {
       carouselImages.map((image, index) => (

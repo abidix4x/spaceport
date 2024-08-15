@@ -84,7 +84,7 @@ const ProjectPage = () => {
         </div>
         <div className="w-full md:w-1/2 h-80 shadow-drop rounded-2xl relative mb-6 md:mb-0 flex justify-center items-center">
           <Image
-            src={project.img}
+            src={project.img2}
             alt={project.title}
             layout="fill"
             objectFit="contain"
@@ -95,7 +95,7 @@ const ProjectPage = () => {
 
 
 
-              <ProjectCarousel/>
+              <ProjectCarousel carouselImages={project.carousel}/>
 
       {/* Back Button */}
       <div className="mt-10 text-center">
