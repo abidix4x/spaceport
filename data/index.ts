@@ -68,6 +68,7 @@ export const projects = [
     title: "BleepBleeps - Smart Family",
     des: "kids gadgets website.",
     detailedDes:"Cute, connected gadgets that Make Parenting Magic. Each of the BleepBleeps characters has a face, a name, and a personality - and they each help with a different aspect of parenting. Whether it’s a good night’s sleep, brushing teeth, tracking body temperature or location - each device connects to the BleepBleeps app to help you and your family through the day.",
+    role:"front-end developer",
     img: "/bleeps.png",
     img2:"/bleeps2.png",
     iconLists: [
@@ -104,33 +105,55 @@ export const projects = [
   },
   {
     id: 2,
-    title: "Yoom - Video Conferencing App",
-    des: "cool description will be hereeeee yallah",
-    detailedDes:"lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident ",
-    img: "/p2.svg",
-    img2:"/bleeps2.png",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/c.svg"],
-    link: "https://github.com",
+    title: "Red Movilidad",
+    des: "Chile's capital Transport Management Website",
+    detailedDes:"Red.cl is the official website for Santiago's public transport system, providing essential information and services to millions of users. The site offers real-time updates on bus and metro schedules, route planning, fare details, and card recharges. It also includes service status alerts, a station locator, and accessibility features, ensuring a user-friendly experience for both locals and tourists.My role involved developing the front-end of the website, focusing on creating a responsive and intuitive interface that allows users to easily navigate the public transport network. I implemented interactive elements, optimized performance, and ensured cross-browser compatibility, contributing to a seamless user experience.",
+    role:"front-end developer",
+    img: "/red1.png",
+    img2:"/red4.png",
+    iconLists: ["/php.png","/js-logo.png","/mysql.png", "/css.png","/sql.png", "/html.png", "/scss.png",],
+    link: "https://www.red.cl/",
      carousel:[
       {
-        path: "/CardImage.png",
-        name: "land"
+        path: "/red2.png",
+        name: ""
+      },
+      {
+        path: "/red3.png",
+        name: ""
+      },
+      {
+        path: "/red5.png",
+        name: ""
+      },
+      {
+        path: "/red6.png",
+        name: ""
       },
     ]
   },
   {
     id: 3,
-    title: "AI Image SaaS - Canva Application",
-    des: "cool description will be hereeeee yallah",
-    detailedDes:"lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident ",
-    img: "/p3.svg",
-    img2:"/bleeps2.png",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
+    title: "RedBip!",
+    des: "Operated by Santiago Metro",
+    detailedDes:"The Red Bip website is an essential platform for managing Santiago's public transport card, \"Bip!.\" It enables users to check the status of unpaid charges, recharge their cards, and manage various other account details. As a front-end developer my task on this project was to apply some modifications on the UI to provide a seamless and user-friendly experience",
+    role:"front-end developer",
+    img: "/redbip1.png",
+    img2:"/redbip5.png",
+    iconLists: ["/php.png", "/scss.png", "/html.png","/css.png"],
     link: "https://github.com",
      carousel:[
       {
-        path: "/CardImage.png",
-        name: "land"
+        path: "/redbip3.png",
+        name: ""
+      },
+      {
+        path: "/redbip2.png",
+        name: ""
+      },
+      {
+        path: "/redbip4.png",
+        name: ""
       },
     ]
   },
@@ -139,6 +162,7 @@ export const projects = [
     title: "Animated Apple Iphone 3D Website",
     des: "cool description will be hereeeee yallah",
     detailedDes:"lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident ",
+    role:"front-end developer",
     img: "/p4.svg",
     img2:"/bleeps2.png",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg"],
