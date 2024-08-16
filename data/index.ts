@@ -74,12 +74,13 @@ export const projects = [
     iconLists: [
       "/re.svg",
       "/tail.svg",
-      "/ts.svg",
+      "/js-logo.png",
       "/html.png",
       "/css.png",
       "/mongodb.png",
     ],
     link: "https://itsallmememe.github.io/bleepbleeps/bleepbleeps.itsallmememe.com/index.html",
+    place:"Upwork, from Feb 6th to Apr 20th 2023",
     carousel:[
       {
         path: "/bleeps3.png",
@@ -113,6 +114,7 @@ export const projects = [
     img2:"/red4.png",
     iconLists: ["/php.png","/js-logo.png","/mysql.png", "/css.png","/sql.png", "/html.png", "/scss.png",],
     link: "https://www.red.cl/",
+    place:"Upwork,august 2023",
      carousel:[
       {
         path: "/red2.png",
@@ -142,6 +144,7 @@ export const projects = [
     img2:"/redbip5.png",
     iconLists: ["/php.png", "/scss.png", "/html.png","/css.png"],
     link: "https://github.com",
+    place:"Upwork,July 2023",
      carousel:[
       {
         path: "/redbip3.png",
@@ -159,18 +162,41 @@ export const projects = [
   },
   {
     id: 4,
-    title: "Animated Apple Iphone 3D Website",
-    des: "cool description will be hereeeee yallah",
-    detailedDes:"lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident lorem ipsum dolor sit amet et dolor sit amet, sed diam non proident ",
+    title: "E-commerce Analytics Dashboard - Real-Time Insights for Business Growth",
+    des: "powerful dashboard designed to provide a comprehensive overview of your e-commerce platform's performance.",
+    detailedDes:"This project is a dashboard analytics interface designed for e-commerce platforms, providing users with an overview of critical metrics such as order statistics, financial balances, and transaction history. The dashboard features various components, including visual representations of sales data, weekly performance, and detailed transaction logs, enabling users to make informed decisions quickly. My role as a front-end developer involved creating a responsive and visually appealing interface that presents complex data in a user-friendly format.",
     role:"front-end developer",
-    img: "/p4.svg",
-    img2:"/bleeps2.png",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg"],
+    img: "/dash1.png",
+    img2:"/dash2.png",
+    iconLists: ["/next.svg", "/tail.svg","/framer.png","/ts.svg", "/js-logo.png",],
     link: "https://github.com",
+    place:"Personal project, Mar 2024",
      carousel:[
       {
-        path: "/CardImage.png",
-        name: "land"
+        path: "/dash3.png",
+        name: ""
+      },
+    ]
+  },
+  {
+    id: 5,
+    title: "AbhCars - Luxury Car Rental & Sales Platform",
+    des: "modern and user-centric web platform that allows users to browse, rent luxury vehicles with ease",
+    detailedDes:"CarHub is a fully-featured web application tailored for both car rental and car sales. The project combines an intuitive user interface with a powerful backend to deliver a smooth experience for users looking to rent or buy luxury cars.On this project i focused on learning new skills and technologies such as data fetching and API handling which i'm proud of. ",
+    role:"front-end developer",
+    img: "/cars1.png",
+    img2:"/cars2.png",
+    iconLists: ["/next.svg", "/rapidapi.png","/tail.svg","/framer.png", "/ts.png",],
+    link: "https://github.com",
+    place:"Personal project, Dec 2023",
+     carousel:[
+      {
+        path: "/cars3.png",
+        name: ""
+      },
+      {
+        path: "/cars4.png",
+        name: ""
       },
     ]
   },

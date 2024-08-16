@@ -25,9 +25,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const router = useRouter();
-  const handleRouting =()=>{
-    router.push(`/projects/${id}`)
-  }
+  const handleRouting = () => {
+    router.push(`/projects/${id}`);
+  };
   return (
     <motion.div
       className="cursor-pointer relative max-w-sm rounded-[22px] aspect-card w-[320px] overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105"
@@ -53,8 +53,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
       {/* Card Content */}
       <div className="p-6 text-white">
-        <h3 className="text-xl font-bold mb-3">{title}</h3>
-        <p className="text-sm text-gray-300 mb-5">{description}</p>
+        <h3 className="text-xl font-bold mb-3 line-clamp-2">{title}</h3>
+        <p
+          className="text-sm text-gray-300 mb-5"
+          style={{
+            display: "-webkit-box",
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+            WebkitLineClamp: 2,
+            lineClamp: 2,
+          }}
+        >
+          {description}
+        </p>
 
         <div className="flex items-center justify-between">
           {/* Icons List */}
@@ -79,21 +90,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               )
             )}
             <div
-                  
-                  className="border border-white/[.2] rounded-full bg-black cursor-pointer  lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
-                  style={{
-                    transform: `translateX(-${5 * 3}px)`,
-                  }}
-                >
-                  <span>+{iconLists.length-3}</span>
-                </div>
+              className="border border-white/[.2] rounded-full bg-black cursor-pointer  lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
+              style={{
+                transform: `translateX(-${5 * 3}px)`,
+              }}
+            >
+              <span>+{iconLists.length - 3}</span>
+            </div>
           </div>
           <a
             href={projectUrl}
             target="_blank"
-            
             className="z-50 inline-flex items-center px-2 py-2 text-sm font-normal text-nowrap bg-gradient-to-r from-purple-500 to-cyan-500 rounded-[27px] shadow-lg transition-shadow duration-400 hover:filter:drop-shadow(2px_4px_3px_black) hover:scale-105 cursor-pointer border"
-          > 
+          >
             View Project <FaExternalLinkAlt className="ml-2" />
           </a>
         </div>

@@ -54,6 +54,7 @@ const ProjectPage = () => {
           </div>
           <div>
             <h1 className="text-lg py-3 font-semibold">Role: {project.role}</h1>
+            <h3 className="text-[18px] pb-3 font-medium"><span className="font-semibold">Platform & date: </span>{project.place}</h3>
           </div>
 
           <a
