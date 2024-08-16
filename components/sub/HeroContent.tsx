@@ -2,14 +2,18 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { slideInFromLeft, slideInFromRight, slideInFromTop } from "@/utils/motion";
+import {
+  slideInFromLeft,
+  slideInFromRight,
+  slideInFromTop,
+} from "@/utils/motion";
 import Image from "next/image";
 import { FaLocationArrow } from "react-icons/fa6";
 import MagicButton from "../main/MagicButton";
 import { useTheme } from "next-themes";
 
 const HeroContent = () => {
-  const {theme} = useTheme();
+  const { theme } = useTheme();
   const [gradientPosition, setGradientPosition] = useState({ x: 50, y: 50 });
   const imageContainerRef = useRef<HTMLDivElement>(null);
 
@@ -38,12 +42,24 @@ const HeroContent = () => {
 
   return (
     <motion.div
-      initial="hidden"
-      animate="visible"
-      className="flex flex-col lg:flex-row items-center justify-between px-6 lg:px-20 w-full z-50 pt-12 lg:pt-24 space-y-10 lg:space-y-0 dark:bg-"
+      initial={{ opacity: 0, y: 50, scale: 0.8 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="flex flex-col lg:flex-row items-center justify-between px-6 lg:px-20 w-full z-50 pt-12 lg:pt-24 space-y-10 lg:space-y-0"
     >
       {/* Left Content */}
-      <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 mt-12 lg:mt-0">
+      <motion.div
+        className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 mt-12 lg:mt-0"
+        initial="hidden"
+        whileInView="visible"
+        variants={{
+          visible: {
+            transition: {
+              staggerChildren: 0.2,
+            },
+          },
+        }}
+      >
         <motion.div
           variants={slideInFromTop}
           className="dark:bg-black-200 bg-transparent px-4 py-2 rounded-full border border-purple shadow-lg"
@@ -78,11 +94,12 @@ const HeroContent = () => {
           className="dark:text-gray-400 text-gray-600 text-sm sm:text-base md:text-lg max-w-md lg:max-w-lg"
         >
           I&apos;m a Future Software Engineer with experience in Website,
-          Mobile, and Software development. Check out my projects and skills.
+          Mobile, and Software development as i work freely as a freelancer 
+          since 2022. Check out my projects and skills.
         </motion.p>
 
         <motion.a
-          variants={slideInFromLeft(1)}
+          variants={slideInFromLeft(0.6)}
           href="#projects"
           className="inline-flex items-center dark:text-white dark:bg-gradient-to-r dark:from-purple dark:to-cyan-500 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300 
           bg-white text-black h-0"
@@ -94,7 +111,7 @@ const HeroContent = () => {
             otherClasses="text-white"
           />
         </motion.a>
-      </div>
+      </motion.div>
 
       {/* Right Content - Image with Effects */}
       <motion.div
@@ -107,7 +124,7 @@ const HeroContent = () => {
       >
         <div className="absolute inset-0 border-4 border-purple rounded-full opacity-80 animate-pulse"></div>
         <Image
-          src={theme === 'dark'? '/me3.png':'/me2.png'}
+          src={theme === "dark" ? "/me3.png" : "/me2.png"}
           alt="Abidi Ben Hassen"
           height={650}
           width={650}

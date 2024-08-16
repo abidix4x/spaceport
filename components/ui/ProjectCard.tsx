@@ -71,7 +71,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           {/* Icons List */}
           <div className="flex items-center cursor-pointer">
             {iconLists.map((icon, index) =>
-              index < 3 ? (
+              index < 3   ? (
                 <div
                   key={index}
                   className="border border-white/[.2] rounded-full bg-black cursor-pointer  lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
@@ -89,15 +89,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 []
               )
             )}
-            <div
+            {
+              iconLists.length > 3 ?(<div
               className="border border-white/[.2] rounded-full bg-black cursor-pointer  lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
               style={{
                 transform: `translateX(-${5 * 3}px)`,
               }}
             >
-              <span>+{iconLists.length - 3}</span>
+              {iconLists.length > 3 ? <span>+{iconLists.length - 3}</span>:[]}
             </div>
-          </div>
+           ):([])
+            }
+            </div>
           <a
             href={projectUrl}
             target="_blank"
