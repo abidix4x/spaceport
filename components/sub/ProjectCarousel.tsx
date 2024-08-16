@@ -24,7 +24,7 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
 }) => (
   <>
   <div className="flex flex-col">
-  <h1 className=" mt-6 text-center font-bold text-black-100 dark:text-white text-3xl">"Project Highlights"
+  <h1 className=" mt-6 text-center font-bold text-black-100 dark:text-white text-3xl">Project Highlights
   </h1>
     <span className="text-center">A glimpse of the key features and designs from the project.</span>
   </div>
