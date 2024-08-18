@@ -232,7 +232,7 @@ export const projects = [
     des: "Displying diffrent versions of a product with sleek animations",
     detailedDes:"This project is the first piece of a larger project that i am working on it's called Dynamic Heros, the concept is that this whole page is like a large reusable component that allows changing the content of the whole application so simple, sice this hero section accepts all its content as props even styles which makes this project very flexible.I brought this to reality using diffrent technoglogies but what i focused on the most is framer-motion.This project is live you can check it now!",
     role:"front-end developer",
-    img: "/prod1.png",
+    img: "/prod3.png",
     img2:"/prod6.png",
     iconLists: ["/next.svg", "/tail.svg","/framer.png"],
     link: "https://dynamicproduct.vercel.app/",
