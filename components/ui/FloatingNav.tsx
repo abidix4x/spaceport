@@ -58,7 +58,7 @@ export const FloatingNav = ({ className }: { className?: string }) => {
             href={navItem.link}
             className="relative text-neutral-50 items-center flex space-x-1 dark:text-white hover:text-neutral-300 dark:hover:text-neutral-500"
             aria-label={navItem.name}
-            aria-current={navItem.link === window.location.hash ? "page" : undefined}
+            
           >
             <span className="icon sm:hidden px-2 text-xl" aria-hidden="true">
               {navItem.icon}
