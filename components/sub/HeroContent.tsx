@@ -19,7 +19,6 @@ const HeroContent = () => {
   const mainRef = useRef(null);
   const isInView = useInView(mainRef, { once: true, margin: "-100px" });
 
-  // Throttled mouse move handler
   useEffect(() => {
     let animationFrameId: number;
     const handleMouseMove = (e: MouseEvent) => {
@@ -66,39 +65,37 @@ const HeroContent = () => {
         {/* Name Badge */}
         <motion.div
           variants={slideInFromTop}
-          className="dark:bg-black-200 bg-transparent px-4 py-2 rounded-full border border-purple shadow-lg"
+          className="dark:bg-gray-800 bg-gray-100 px-4 py-2 rounded-full border border-purple shadow-lg"
         >
-          <h1 className="dark:text-white-100 text-black-100 text-[18px] sm:text-lg font-light">
+          <p className="dark:text-white text-black text-[18px] sm:text-lg font-medium">
             Abidi Ben Hassen
-          </h1>
+          </p>
         </motion.div>
 
         {/* Subtitle */}
         <motion.h2
           variants={slideInFromRight(0.8)}
-          className="uppercase dark:text-blue-100 tracking-widest text-xs lg:text-sm text-black-100"
+          className="uppercase dark:text-blue-200 tracking-widest text-sm lg:text-base text-gray-800 dark:text-gray-300"
         >
           Dynamic Web Magic With Next.js
         </motion.h2>
 
         {/* Main Title */}
-        <motion.div
+        <motion.h1
           variants={slideInFromLeft(0.5)}
-          className="text-black-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold dark:text-white leading-tight"
+          className="text-gray-900 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold dark:text-white leading-tight"
         >
-          <span>
-            Providing{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple to-cyan-500">
-              the best
-            </span>{" "}
-            project experience
-          </span>
-        </motion.div>
+          Providing{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple to-cyan-500">
+            the best
+          </span>{" "}
+          project experience
+        </motion.h1>
 
         {/* Description */}
         <motion.p
           variants={slideInFromLeft(0.8)}
-          className="dark:text-gray-400 text-gray-600 text-sm sm:text-base md:text-lg max-w-md lg:max-w-lg"
+          className="dark:text-gray-300 text-gray-700 text-base sm:text-lg md:text-xl max-w-md lg:max-w-lg"
         >
           I&apos;m a Future Software Engineer with experience in Website,
           Mobile, and Software development as I work freely as a freelancer
@@ -109,6 +106,8 @@ const HeroContent = () => {
         <motion.a
           variants={slideInFromLeft(0.6)}
           href="#projects"
+          role="button"
+          aria-label="Explore Projects"
           className="inline-flex items-center"
         >
           <MagicButton
@@ -130,12 +129,12 @@ const HeroContent = () => {
         }}
       >
         {/* Optimized Image */}
+
         <Image
           src={theme === "dark" ? "/me3.webp" : "/me2.webp"}
-          alt="Abidi Ben Hassen"
+          alt="Portrait of Abidi Ben Hassen"
           fill
-          sizes="(max-width: 768px) 90vw, 50vw"
-          priority
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="relative z-10 object-cover object-center md:object-top hover:scale-105 transition-transform duration-300"
         />
 
@@ -149,16 +148,18 @@ const HeroContent = () => {
             repeatType: "reverse",
             duration: 2,
           }}
+          aria-hidden="true"
         />
 
         <motion.div
-          className="absolute inset-0 border-2 border-white-100 rounded-full"
+          className="absolute inset-0 border-2 border-white rounded-full"
           animate={{ rotate: 360 }}
           transition={{
             repeat: Infinity,
             duration: 20,
             ease: "linear",
           }}
+          aria-hidden="true"
         />
       </motion.div>
     </motion.div>

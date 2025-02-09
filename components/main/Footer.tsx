@@ -8,8 +8,8 @@ const Footer = () => {
       <div className="w-full absolute left-0 -bottom-72 min-h-96">
         <img
           src="/footer-grid.svg"
-          alt="grid"
-          className="w-full h-full opacity-50 "
+          alt="Decorative grid background"
+          className="w-full h-full opacity-50"
         />
       </div>
 
@@ -52,14 +52,16 @@ const Footer = () => {
       >
         <div className="flex items-center gap-6 md:gap-3 justify-center">
           {SOCIALMEDIA.map((icon) => (
-            <div
+            <a
               key={icon.id}
+              href={icon.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Visit my ${icon.href} profile`} // Adds screen reader-friendly text
               className="hover:scale-110 transition duration-200 w-11 h-11 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-95 dark:bg-black-200 rounded-full border border-black-300 bg-gradient-to-br from-violet-400 to-purple"
             >
-              <a href={icon.href} target="balnk">
-                {icon.img}
-              </a>
-            </div>
+              {icon.img}
+            </a>
           ))}
         </div>
       </motion.div>
