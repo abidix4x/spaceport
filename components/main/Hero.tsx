@@ -1,8 +1,6 @@
 "use client";
 import { Spotlight } from "@/components/ui/Spotlight";
 import HeroContent from "../sub/HeroContent";
-import { motion } from "framer-motion";
-import { slideInFromRight, slideInFromTop } from "@/utils/motion";
 const Hero = () => {
   return (
     <div className="pb-10 z-50" id="hero">

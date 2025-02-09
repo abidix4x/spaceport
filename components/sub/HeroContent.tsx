@@ -1,12 +1,8 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
-import {
-  slideInFromLeft,
-  slideInFromRight,
-  slideInFromTop,
-} from "@/utils/motion";
+import { motion, useInView } from "framer-motion";
+import { slideInFromLeft, slideInFromRight, slideInFromTop } from "@/utils/motion";
 import Image from "next/image";
 import { FaLocationArrow } from "react-icons/fa6";
 import MagicButton from "../main/MagicButton";
@@ -16,34 +12,37 @@ const HeroContent = () => {
   const { theme } = useTheme();
   const [gradientPosition, setGradientPosition] = useState({ x: 50, y: 50 });
   const imageContainerRef = useRef<HTMLDivElement>(null);
+  const mainRef = useRef(null);
+  const isInView = useInView(mainRef, { once: true, margin: "-100px" });
 
+  // Throttled mouse move handler
   useEffect(() => {
+    let animationFrameId: number;
     const handleMouseMove = (e: MouseEvent) => {
-      if (imageContainerRef.current) {
-        const rect = imageContainerRef.current.getBoundingClientRect();
+      if (!imageContainerRef.current) return;
+
+      animationFrameId = requestAnimationFrame(() => {
+        const rect = imageContainerRef.current!.getBoundingClientRect();
         const x = ((e.clientX - rect.left) / rect.width) * 100;
         const y = ((e.clientY - rect.top) / rect.height) * 100;
         setGradientPosition({ x, y });
-      }
+      });
     };
 
     const imageContainer = imageContainerRef.current;
-
-    if (imageContainer) {
-      imageContainer.addEventListener("mousemove", handleMouseMove);
-    }
+    if (imageContainer) imageContainer.addEventListener("mousemove", handleMouseMove);
 
     return () => {
-      if (imageContainer) {
-        imageContainer.removeEventListener("mousemove", handleMouseMove);
-      }
+      if (imageContainer) imageContainer.removeEventListener("mousemove", handleMouseMove);
+      cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
   return (
-    <motion.div
+    <motion.div 
+      ref={mainRef}
       initial={{ opacity: 0, y: 50, scale: 0.8 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="flex flex-col lg:flex-row items-center justify-between px-6 lg:px-20 w-full z-50 pt-12 lg:pt-24 space-y-10 lg:space-y-0"
     >
@@ -51,15 +50,14 @@ const HeroContent = () => {
       <motion.div
         className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 mt-12 lg:mt-0"
         initial="hidden"
-        whileInView="visible"
+        animate={isInView ? "visible" : "hidden"}
         variants={{
           visible: {
-            transition: {
-              staggerChildren: 0.2,
-            },
-          },
+            transition: { staggerChildren: 0.2, delayChildren: 0.2 }
+          }
         }}
       >
+        {/* Name Badge */}
         <motion.div
           variants={slideInFromTop}
           className="dark:bg-black-200 bg-transparent px-4 py-2 rounded-full border border-purple shadow-lg"
@@ -69,6 +67,7 @@ const HeroContent = () => {
           </h1>
         </motion.div>
 
+        {/* Subtitle */}
         <motion.h2
           variants={slideInFromRight(0.8)}
           className="uppercase dark:text-blue-100 tracking-widest text-xs lg:text-sm text-black-100"
@@ -76,6 +75,7 @@ const HeroContent = () => {
           Dynamic Web Magic With Next.js
         </motion.h2>
 
+        {/* Main Title */}
         <motion.div
           variants={slideInFromLeft(0.5)}
           className="text-black-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold dark:text-white leading-tight"
@@ -89,20 +89,21 @@ const HeroContent = () => {
           </span>
         </motion.div>
 
+        {/* Description */}
         <motion.p
           variants={slideInFromLeft(0.8)}
           className="dark:text-gray-400 text-gray-600 text-sm sm:text-base md:text-lg max-w-md lg:max-w-lg"
         >
           I&apos;m a Future Software Engineer with experience in Website,
-          Mobile, and Software development as i work freely as a freelancer 
+          Mobile, and Software development as I work freely as a freelancer 
           since 2022. Check out my projects and skills.
         </motion.p>
 
+        {/* Button */}
         <motion.a
           variants={slideInFromLeft(0.6)}
           href="#projects"
-          className="inline-flex items-center dark:text-white dark:bg-gradient-to-r dark:from-purple dark:to-cyan-500 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform duration-300 
-          bg-white text-black h-0"
+          className="inline-flex items-center"
         >
           <MagicButton
             title="Explore"
@@ -113,25 +114,46 @@ const HeroContent = () => {
         </motion.a>
       </motion.div>
 
-      {/* Right Content - Image with Effects */}
+      {/* Image Container */}
       <motion.div
         variants={slideInFromRight(0.8)}
         ref={imageContainerRef}
-        className="relative w-full max-w-md lg:max-w-lg aspect-square rounded-full shadow-2xl overflow-hidden transition-transform duration-300"
+        className="relative w-full max-w-md lg:max-w-lg aspect-square rounded-full shadow-2xl overflow-hidden"
         style={{
           background: `radial-gradient(circle at ${gradientPosition.x}% ${gradientPosition.y}%, #cbacf9, #000319)`,
         }}
       >
-        <div className="absolute inset-0 border-4 border-purple rounded-full opacity-80 animate-pulse"></div>
+        {/* Optimized Image */}
         <Image
-          src={theme === "dark" ? "/me3.png" : "/me2.png"}
+          src={theme === "dark" ? "/me3.webp" : "/me2.webp"}
           alt="Abidi Ben Hassen"
-          height={650}
-          width={650}
+          fill
+          sizes="(max-width: 768px) 90vw, 50vw"
           priority
-          className="relative z-10 rounded-full object-cover shadow-lg hover:scale-105 transition-transform duration-300"
+          className="relative z-10 object-cover hover:scale-105 transition-transform duration-300"
         />
-        <div className="absolute inset-0 border-2 border-white-100 rounded-full opacity-20 animate-spin-slow"></div>
+        
+        {/* Performance Optimized Borders */}
+        <motion.div 
+          className="absolute inset-0 border-4 border-purple rounded-full"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.8 }}
+          transition={{ 
+            repeat: Infinity,
+            repeatType: "reverse",
+            duration: 2
+          }}
+        />
+        
+        <motion.div 
+          className="absolute inset-0 border-2 border-white-100 rounded-full"
+          animate={{ rotate: 360 }}
+          transition={{
+            repeat: Infinity,
+            duration: 20,
+            ease: "linear"
+          }}
+        />
       </motion.div>
     </motion.div>
   );
