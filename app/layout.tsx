@@ -8,7 +8,7 @@ import { ThemeProvider } from "./provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "spaceport",
+  title: "ABH",
   description: "The portal to Abidi's space",
 };
 
