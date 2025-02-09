@@ -2,7 +2,11 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { slideInFromLeft, slideInFromRight, slideInFromTop } from "@/utils/motion";
+import {
+  slideInFromLeft,
+  slideInFromRight,
+  slideInFromTop,
+} from "@/utils/motion";
 import Image from "next/image";
 import { FaLocationArrow } from "react-icons/fa6";
 import MagicButton from "../main/MagicButton";
@@ -30,16 +34,18 @@ const HeroContent = () => {
     };
 
     const imageContainer = imageContainerRef.current;
-    if (imageContainer) imageContainer.addEventListener("mousemove", handleMouseMove);
+    if (imageContainer)
+      imageContainer.addEventListener("mousemove", handleMouseMove);
 
     return () => {
-      if (imageContainer) imageContainer.removeEventListener("mousemove", handleMouseMove);
+      if (imageContainer)
+        imageContainer.removeEventListener("mousemove", handleMouseMove);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
   return (
-    <motion.div 
+    <motion.div
       ref={mainRef}
       initial={{ opacity: 0, y: 50, scale: 0.8 }}
       animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
@@ -53,8 +59,8 @@ const HeroContent = () => {
         animate={isInView ? "visible" : "hidden"}
         variants={{
           visible: {
-            transition: { staggerChildren: 0.2, delayChildren: 0.2 }
-          }
+            transition: { staggerChildren: 0.2, delayChildren: 0.2 },
+          },
         }}
       >
         {/* Name Badge */}
@@ -95,7 +101,7 @@ const HeroContent = () => {
           className="dark:text-gray-400 text-gray-600 text-sm sm:text-base md:text-lg max-w-md lg:max-w-lg"
         >
           I&apos;m a Future Software Engineer with experience in Website,
-          Mobile, and Software development as I work freely as a freelancer 
+          Mobile, and Software development as I work freely as a freelancer
           since 2022. Check out my projects and skills.
         </motion.p>
 
@@ -130,28 +136,28 @@ const HeroContent = () => {
           fill
           sizes="(max-width: 768px) 90vw, 50vw"
           priority
-          className="relative z-10 object-cover hover:scale-105 transition-transform duration-300"
+          className="relative z-10 object-cover object-center md:object-top hover:scale-105 transition-transform duration-300"
         />
-        
+
         {/* Performance Optimized Borders */}
-        <motion.div 
+        <motion.div
           className="absolute inset-0 border-4 border-purple rounded-full"
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.8 }}
-          transition={{ 
+          transition={{
             repeat: Infinity,
             repeatType: "reverse",
-            duration: 2
+            duration: 2,
           }}
         />
-        
-        <motion.div 
+
+        <motion.div
           className="absolute inset-0 border-2 border-white-100 rounded-full"
           animate={{ rotate: 360 }}
           transition={{
             repeat: Infinity,
             duration: 20,
-            ease: "linear"
+            ease: "linear",
           }}
         />
       </motion.div>
