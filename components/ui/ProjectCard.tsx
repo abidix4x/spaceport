@@ -26,7 +26,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <div
-      className="cursor-pointer relative max-w-sm rounded-[22px] aspect-card w-[320px] overflow-hidden shadow-lg transition-transform duration-200 hover:scale-105"
+      className="cursor-pointer relative max-w-sm rounded-[22px] aspect-card w-[320px] overflow-hidden shadow-lg transition-transform duration-200 lg:hover:scale-105 hover:scale-105"
       style={{
         background: `linear-gradient(135deg, #000319 0%, #cbacf9 100%)`,
       }}
@@ -37,7 +37,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       onKeyDown={(e) => e.key === "Enter" && router.push(`/projects/${id}`)}
     >
       <div className="relative w-full h-48 overflow-hidden">
-        <Image src={imageUrl} alt={`Preview of ${title}`} fill className="object-cover" />
+        <Image src={imageUrl} alt={`Preview of ${title}`} fill className="object-fit" />
       </div>
 
       <div className="p-6 text-white">

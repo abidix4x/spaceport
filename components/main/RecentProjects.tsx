@@ -14,7 +14,7 @@ const RecentProjects = () => {
 
       {/* Project Cards Grid */}
       <div
-        className="p-4 mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-0 gap-y-6 justify-items-center"
+        className="p-4 mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 lg:gap-x-0 gap-y-6 justify-items-center"
         role="list"
       >
         {projects.map((item) => (

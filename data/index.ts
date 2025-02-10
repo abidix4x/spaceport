@@ -4,12 +4,11 @@ export const gridItems = [
   {
     id: 2,
     title: "I'm very flexible with time zone communications",
-    description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-2",
+    description: "currently at GMT+1",
+    className: "lg:col-span-2 md:col-span-3 md:row-span-2 ",
     imgClassName: "",
-    titleClassName: "justify-start text-white",
-    img: "",
-    spareImg: "",
+    titleClassName: "text-white items-center justify-center",
+
   },
   {
     id: 3,
@@ -18,8 +17,7 @@ export const gridItems = [
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
     titleClassName: "justify-center text-white",
-    img: "",
-    spareImg: "",
+
   },
   {
     id: 4,
@@ -47,12 +45,10 @@ export const gridItems = [
     id: 6,
     title: "Do you want to start a project together?",
     description: "",
-    className: "lg:col-span-2 md:col-span-3 md:row-span-1",
+    className: "lg:col-span-2 md:col-span-3 md:row-span-1 justify-center items-center",
     imgClassName: "",
     titleClassName:
-      "justify-center md:max-w-full max-w-60 text-center text-white",
-    img: "",
-    spareImg: "",
+      "justify-center md:max-w-full max-w-70 text-center text-white ",
   },
 ];
 

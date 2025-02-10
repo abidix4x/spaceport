@@ -3,8 +3,9 @@
 import { useParams, useRouter } from "next/navigation";
 import { projects } from "@/data";
 import Image from "next/image";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaArrowAltCircleLeft, FaExternalLinkAlt } from "react-icons/fa";
 import ProjectCarousel from "@/components/sub/ProjectCarousel";
+import { ArrowLeftCircleIcon } from "@heroicons/react/24/solid";
 
 const ProjectPage = () => {
   const { id } = useParams();
@@ -18,10 +19,20 @@ const ProjectPage = () => {
 
   return (
     <div className="container mx-auto py-20 px-4">
+     
       {/* Project Title */}
+      <button
+          onClick={() => router.push("/#projects")}
+          className="bg-transparent left-5 absolute top-5"
+          aria-label="Back to projects list"
+          >
+          <FaArrowAltCircleLeft className="text-black text-[40px]  font-bold z-10"/> 
+        </button>
+      
       <h1 className="text-4xl font-bold mb-6 dark:text-gray-200 text-gray-900 text-center">
         {project.title}
       </h1>
+     
 
       <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start">
         {/* Project Image */}
