@@ -77,7 +77,7 @@ const HeroContent = () => {
           variants={slideInFromRight(0.8)}
           className="uppercase dark:text-blue-200 tracking-widest text-sm lg:text-base text-gray-800 dark:text-gray-300"
         >
-          Dynamic Web Magic With Next.js
+          Frontend Developer • React & Next.js Expert
         </motion.h2>
 
         {/* Main Title */}
@@ -85,11 +85,11 @@ const HeroContent = () => {
           variants={slideInFromLeft(0.5)}
           className="text-gray-900 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold dark:text-white leading-tight"
         >
-          Providing{" "}
+          Crafting{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple to-cyan-500">
-            the best
+            exceptional
           </span>{" "}
-          project experience
+          digital experiences
         </motion.h1>
 
         {/* Description */}
@@ -97,26 +97,31 @@ const HeroContent = () => {
           variants={slideInFromLeft(0.8)}
           className="dark:text-gray-300 text-gray-700 text-base sm:text-lg md:text-xl max-w-md lg:max-w-lg"
         >
-          I&apos;m a Future Software Engineer with experience in Website,
-          Mobile, and Software development as I work freely as a freelancer
-          since 2022. Check out my projects and skills.
+          Software Engineer specializing in modern web development with 3+ years of experience. 
+          Delivered 50+ successful projects for international clients. 
+          Passionate about building scalable, user-centric applications.
         </motion.p>
 
-        {/* Button */}
-        <motion.a
+        {/* Buttons */}
+        <motion.div
           variants={slideInFromLeft(0.6)}
-          href="#projects"
-          role="button"
-          aria-label="Explore Projects"
-          className="inline-flex items-center"
+          className="flex flex-col sm:flex-row gap-4 items-center"
         >
-          <MagicButton
-            title="Explore"
-            icon={<FaLocationArrow />}
-            position="right"
-            otherClasses="text-white"
-          />
-        </motion.a>
+          <a
+            href="#projects"
+            role="button"
+            aria-label="Explore Projects"
+            className="inline-flex items-center"
+          >
+            <MagicButton
+              title="View My Work"
+              icon={<FaLocationArrow />}
+              position="right"
+              otherClasses="text-white"
+            />
+          </a>
+         
+        </motion.div>
       </motion.div>
 
       {/* Image Container */}

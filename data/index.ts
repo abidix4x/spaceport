@@ -192,36 +192,36 @@ export const projects = [
       },
     ]
   },
-  {
-    id: 6,
-    title: "Portfolio website with cool animations",
-    des: "A step that every developer should pass through in his very first days",
-    detailedDes:"I built this website back in 2022 when i started to learn react for the first time and decided to built something to showcase my ability to create and integrate what i learned into a real world application that is still hosted and you can check it.",
-    role:"front-end developer",
-    img: "/port1.webp",
-    img2:"/port4.webp",
-    iconLists: ["/re.svg", "/css.webp","/js-logo.webp"],
-    link: "https://react-portfolio-rose-two-89.vercel.app/",
-    place:"Personal project, 2022",
-     carousel:[
-      {
-        path: "/port1.webp",
-        name: ""
-      },
-      {
-        path: "/port3.webp",
-        name: ""
-      },
-      {
-        path: "/port2.webp",
-        name: ""
-      },
-      {
-        path: "/port5.webp",
-        name: ""
-      },
-    ]
-  },
+  // {
+  //   id: 6,
+  //   title: "Portfolio website with cool animations",
+  //   des: "A step that every developer should pass through in his very first days",
+  //   detailedDes:"I built this website back in 2022 when i started to learn react for the first time and decided to built something to showcase my ability to create and integrate what i learned into a real world application that is still hosted and you can check it.",
+  //   role:"front-end developer",
+  //   img: "/port1.webp",
+  //   img2:"/port4.webp",
+  //   iconLists: ["/re.svg", "/css.webp","/js-logo.webp"],
+  //   link: "https://react-portfolio-rose-two-89.vercel.app/",
+  //   place:"Personal project, 2022",
+  //    carousel:[
+  //     {
+  //       path: "/port1.webp",
+  //       name: ""
+  //     },
+  //     {
+  //       path: "/port3.webp",
+  //       name: ""
+  //     },
+  //     {
+  //       path: "/port2.webp",
+  //       name: ""
+  //     },
+  //     {
+  //       path: "/port5.webp",
+  //       name: ""
+  //     },
+  //   ]
+  // },
   {
     id: 7,
     title: "Dynamic Single Product E-commerce Displayer",
