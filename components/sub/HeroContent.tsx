@@ -97,8 +97,8 @@ const HeroContent = () => {
           variants={slideInFromLeft(0.8)}
           className="dark:text-gray-300 text-gray-700 text-base sm:text-lg md:text-xl max-w-md lg:max-w-lg"
         >
-          Software Engineer specializing in modern web development with 3+ years of experience. 
-          Delivered 50+ successful projects for international clients. 
+          Web Developer specializing in modern development with 3+ years of experience. 
+          Delivered 10+ successful projects for international clients. 
           Passionate about building scalable, user-centric applications.
         </motion.p>
 
